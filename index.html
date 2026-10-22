@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Urban Cuts Zambia | Premium Barbering</title>
+
+    <meta name="description"
+          content="Urban Cuts Zambia — premium haircuts, fades and grooming. Book your appointment on WhatsApp.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 8, 8, 0.95);
+            border-bottom: 1px solid #222;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 25px 70px;
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.72),
+                    rgba(0,0,0,.88)
+                ),
+                url("https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1800&q=80")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .tag {
+            color: #d4af37;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 90px);
+            line-height: 1;
+            margin: 20px 0;
+            max-width: 850px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero p {
+            color: #ddd;
+            max-width: 600px;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: .3s;
+        }
+
+        .primary {
+            background: #d4af37;
+            color: #000;
+        }
+
+        .primary:hover {
+            background: #fff;
+            transform: translateY(-3px);
+        }
+
+        .secondary {
+            border: 1px solid #777;
+            color: #fff;
+        }
+
+        .secondary:hover {
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 100px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(32px, 5vw, 50px);
+            margin: 10px 0 50px;
+        }
+
+        /* SERVICES */
+
+        .services {
+            background: #0d0d0d;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .service {
+            background: #151515;
+            padding: 30px;
+            border: 1px solid #252525;
+            border-radius: 10px;
+            transition: .3s;
+        }
+
+        .service:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .service p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .price {
+            color: #d4af37;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 450px;
+            background:
+                url("https://images.unsplash.com/photo-1622288432450-277d0fef5ed8?auto=format&fit=crop&w=1000&q=80")
+                center/cover;
+            border-radius: 10px;
+        }
+
+        .about-text h2 {
+            font-size: 45px;
+            margin: 10px 0 20px;
+        }
+
+        .about-text p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 35px;
+            margin-top: 30px;
+        }
+
+        .stat strong {
+            display: block;
+            color: #d4af37;
+            font-size: 30px;
+        }
+
+        .stat span {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        /* GALLERY */
+
+        .gallery {
+            background: #0d0d0d;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: .3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        /* TESTIMONIALS */
+
+        .reviews {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .review {
+            background: #151515;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #222;
+        }
+
+        .stars {
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .review p {
+            color: #ccc;
+            font-style: italic;
+        }
+
+        .review h4 {
+            margin-top: 20px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.8),
+                    rgba(0,0,0,.8)
+                ),
+                url("https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=1800&q=80")
+                center/cover;
+        }
+
+        .contact h2 {
+            font-size: clamp(35px, 6vw, 60px);
+            margin: 10px 0 20px;
+        }
+
+        .contact p {
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            margin-top: 35px;
+            color: #aaa;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #050505;
+            padding: 30px 25px;
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* WHATSAPP FLOATING BUTTON */
+
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            z-index: 999;
+            box-shadow: 0 5px 25px rgba(0,0,0,.5);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 350px;
+            }
+
+            .stats {
+                gap: 20px;
+            }
+
+            .stat strong {
+                font-size: 24px;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <div class="logo">
+            URBAN <span>CUTS</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="tag">
+            Premium Barbering • Zambia
+        </div>
+
+        <h1>
+            LOOK SHARP.<br>
+            <span>FEEL CONFIDENT.</span>
+        </h1>
+
+        <p>
+            Modern cuts, precision fades and professional grooming
+            for men who take their style seriously.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                class="btn primary"
+                href="https://wa.me/260972727502?text=Hi%20Urban%20Cuts%2C%20I%27d%20like%20to%20book%20an%20appointment."
+                target="_blank">
+                Book on WhatsApp
+            </a>
+
+            <a class="btn secondary" href="#services">
+                View Services
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+    <div class="container">
+
+        <div class="section-label">
+            What we do
+        </div>
+
+        <h2 class="section-title">
+            Our Services
+        </h2>
+
+        <div class="service-grid">
+
+            <div class="service">
+                <div class="service-icon">✂️</div>
+                <h3>Classic Haircut</h3>
+                <p>
+                    Clean, professional haircut tailored to your style.
+                </p>
+                <div class="price">K80</div>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🔥</div>
+                <h3>Premium Fade</h3>
+                <p>
+                    Sharp skin fades and modern styles with precision.
+                </p>
+                <div class="price">K100</div>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🧔</div>
+                <h3>Beard Grooming</h3>
+                <p>
+                    Professional beard trimming, shaping and detailing.
+                </p>
+                <div class="price">K60</div>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">👑</div>
+                <h3>Full Package</h3>
+                <p>
+                    Haircut, beard grooming and complete finishing.
+                </p>
+                <div class="price">K150</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-image"></div>
+
+            <div class="about-text">
+
+                <div class="section-label">
+                    About Us
+                </div>
+
+                <h2>
+                    More Than A Haircut.
+                </h2>
+
+                <p>
+                    At Urban Cuts, we believe your haircut is part of
+                    your identity. Our goal is to deliver clean,
+                    confident and modern looks every time you sit
+                    in our chair.
+                </p>
+
+                <p>
+                    From classic cuts to modern fades, our focus is
+                    quality, attention to detail and great customer
+                    service.
+                </p>
+
+                <div class="stats">
+
+                    <div class="stat">
+                        <strong>100%</strong>
+                        <span>Style</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>5★</strong>
+                        <span>Service</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>24/7</strong>
+                        <span>Booking</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+    <div class="container">
+
+        <div class="section-label">
+            Our Work
+        </div>
+
+        <h2 class="section-title">
+            Fresh Cuts
+        </h2>
+
+        <div class="gallery-grid">
+
+            <img
+                src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80"
+                alt="Professional barber haircut">
+
+            <img
+                src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+                alt="Barber shop">
+
+            <img
+                src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80"
+                alt="Haircut">
+
+            <img
+                src="https://images.unsplash.com/photo-1622286346003-cf3c9e0c2f4b?auto=format&fit=crop&w=800&q=80"
+                alt="Barber styling">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-label">
+            Customer Love
+        </div>
+
+        <h2 class="section-title">
+            What Clients Say
+        </h2>
+
+        <div class="reviews">
+
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "Great service and the fade was exactly what I wanted."
+                </p>
+                <h4>— David</h4>
+            </div>
+
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "Clean environment, professional barber and amazing cut."
+                </p>
+                <h4>— Michael</h4>
+            </div>
+
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "Urban Cuts is now my regular barber. Highly recommended."
+                </p>
+                <h4>— Brian</h4>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-label">
+            Book Your Cut
+        </div>
+
+        <h2>
+            Ready To Look Sharp?
+        </h2>
+
+        <p>
+            Message us on WhatsApp and reserve your appointment.
+        </p>
+
+        <a
+            class="btn primary"
+            href="https://wa.me/260972727502?text=Hi%20Urban%20Cuts%2C%20I%27d%20like%20to%20book%20an%20appointment."
+            target="_blank">
+            💬 Book Appointment
+        </a>
+
+        <div class="contact-info">
+            📱 +260 972 727 502
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Urban Cuts Zambia. All Rights Reserved.
+    </p>
+
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/260972727502?text=Hi%20Urban%20Cuts%2C%20I%27d%20like%20to%20book%20an%20appointment."
+    target="_blank"
+    aria-label="Chat on WhatsApp">
+    💬
+</a>
+
+</body>
+</html>
